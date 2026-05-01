@@ -1,0 +1,46 @@
+---
+Language: Cpp
+BasedOnStyle: LLVM
+
+# C project style
+Standard: Auto
+ColumnLimit: 100
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# Braces and indentation
+BreakBeforeBraces: Attach
+IndentCaseLabels: true
+IndentPPDirectives: None
+ContinuationIndentWidth: 4
+NamespaceIndentation: None
+
+# Functions, calls, and short statements
+AllowShortBlocksOnASingleLine: Never
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+BinPackArguments: true
+BinPackParameters: true
+AlignAfterOpenBracket: Align
+
+# Pointers and operators
+PointerAlignment: Right
+DerivePointerAlignment: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatements
+SpaceAfterCStyleCast: true
+
+# Includes and comments
+SortIncludes: true
+IncludeBlocks: Regroup
+ReflowComments: true
+SpacesBeforeTrailingComments: 2
+MaxEmptyLinesToKeep: 1
+
+# Alignment
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignOperands: Align
+AlignTrailingComments: true

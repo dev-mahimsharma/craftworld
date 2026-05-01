@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/spars/OneDrive/Desktop/craftworld/build",
+  "command": "C:\\mingw64\\bin\\gcc.exe -IC:/Users/spars/OneDrive/Desktop/craftworld -o CMakeFiles\\craftworld.dir\\src\\main.c.obj -c C:\\Users\\spars\\OneDrive\\Desktop\\craftworld\\src\\main.c",
+  "file": "C:/Users/spars/OneDrive/Desktop/craftworld/src/main.c",
+  "output": "C:/Users/spars/OneDrive/Desktop/craftworld/build/CMakeFiles/craftworld.dir/src/main.c.obj"
+}
+]

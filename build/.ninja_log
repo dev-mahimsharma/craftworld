@@ -1,0 +1,7 @@
+# ninja log v7
+68	157	7993581847891627	C:/Users/spars/OneDrive/Desktop/craftworld/build/CMakeFiles/cmake.verify_globs	1ce8620eba279ac1
+159	4187	7993581848791622	CMakeFiles/craftworld.dir/src/main.cpp.obj	4dd8fb89fe8cde14
+4192	4382	7993581889125393	craftworld.exe	d69d7a77b491e9ee
+64	242	7993585373642963	C:/Users/spars/OneDrive/Desktop/craftworld/build/CMakeFiles/cmake.verify_globs	1ce8620eba279ac1
+244	395	7993585375446908	CMakeFiles/craftworld.dir/src/main.c.obj	5abc5472e9901fb4
+396	603	7993585376959763	craftworld.exe	9ecb39bda21a4df2
