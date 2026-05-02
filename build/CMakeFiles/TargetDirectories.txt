@@ -1,3 +1,0 @@
-C:/Users/spars/OneDrive/Desktop/craftworld/build/CMakeFiles/craftworld.dir
-C:/Users/spars/OneDrive/Desktop/craftworld/build/CMakeFiles/edit_cache.dir
-C:/Users/spars/OneDrive/Desktop/craftworld/build/CMakeFiles/rebuild_cache.dir
