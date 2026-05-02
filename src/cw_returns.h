@@ -1,7 +1,6 @@
 #ifndef RETURNS_H
 #define RETURNS_H
 
-
 #ifdef __CPLUSPLUS
 extern "c" {
 #endif
@@ -65,10 +64,8 @@ typedef enum CW_Return {
 #define CW_FAILED(result) ((result) < 0)
 #define CW_SUCCESS(result) ((result) >= 0)
 
-
 #ifdef __CPLUSPLUS
 }
 #endif
-
 
 #endif /* RETURNS_H */
