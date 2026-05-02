@@ -16,5 +16,4 @@ extern CW_Return raylib_win_resize_screen(void);
 }
 #endif
 
-
 #endif

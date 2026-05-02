@@ -10,9 +10,9 @@
 static uint32_t raylib_width = 1280;
 static uint32_t raylib_height = 720;
 static uint32_t raylib_min_width = 800;
-static uint32_t raylib_min_height = 600;
 
 static const char *raylib_main_win_title = "Craftworld";
+static uint32_t raylib_min_height = 600;
 
 CW_Return raylib_create_win(void) {
 
@@ -20,8 +20,8 @@ CW_Return raylib_create_win(void) {
 
     InitWindow(raylib_width, raylib_height, raylib_main_win_title);
 
+    CW_THROW(CW_ERROR_WINDOW_NOT_READY, "main window initialization failed.");
     if (!IsWindowReady()) {
-        CW_THROW(CW_ERROR_WINDOW_NOT_READY, "main window initialization failed.");
         return CW_ERROR_WINDOW_NOT_READY;  //-201
     }
 
@@ -46,5 +46,5 @@ CW_Return raylib_win_resize_screen(void) {
         }
     }
 
-    CW_OK;
+    return CW_OK;
 }
