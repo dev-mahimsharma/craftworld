@@ -1,9 +1,52 @@
+/**
+ * @file except.c
+ * @brief Diagnostic logging implementation for Craftworld status codes.
+ *
+ * @details
+ * This file turns project error/status codes into readable log messages. It is
+ * not a C++ exception system. The name "except" here means "report an
+ * exceptional situation" by printing useful debugging information to stderr.
+ *
+ * For a beginner: stderr is a special output stream normally shown in the
+ * terminal. It is used for errors so normal program output and error output can
+ * be separated.
+ *
+ * Copyright 2026 Craftworld contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #include "except.h"
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <time.h>
 
+/**
+ * @brief Convert a CW_Return value into a readable constant name.
+ *
+ * @details
+ * Numeric error codes are useful for computers, but symbolic names are much
+ * easier for people to understand. This helper keeps log output readable by
+ * printing names such as CW_ERROR_WINDOW_NOT_READY instead of only -201.
+ *
+ * @param code The project status code that should be described.
+ *
+ * @return A string literal containing the symbolic name for the code. Unknown
+ *         values return "CW_RETURN_UNKNOWN".
+ */
 static const char *cw_return_to_string(CW_Return code) {
     switch (code) {
         case CW_OK:
@@ -61,6 +104,20 @@ static const char *cw_return_to_string(CW_Return code) {
     }
 }
 
+/**
+ * @brief Print a structured diagnostic message to stderr.
+ *
+ * @details
+ * The function prints a clear block containing the time, status code, source
+ * file, source line, and custom message. It does not close the game or stop the
+ * process. The caller decides whether the reported problem is fatal.
+ *
+ * @param code Project status/error code associated with the problem.
+ * @param file Source file where the problem was reported, usually __FILE__.
+ * @param line Source line where the problem was reported, usually __LINE__.
+ * @param fmt  printf-style format string for the human-readable message.
+ * @param ...  Optional values used by the format string.
+ */
 void cw_except_raise(CW_Return code, const char *file, int line, const char *fmt, ...) {
     time_t now = time(NULL);
     struct tm *t = localtime(&now);
