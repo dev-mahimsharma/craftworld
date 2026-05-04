@@ -28,9 +28,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include "camera.h"
 #include "cw_returns.h"
 #include "except.h"
 #include "raylib.h"
+
+#include <stdint.h>
+
+static float cw_jump_speed = 1.f;
 
 /**
  * @brief Process global project keyboard shortcuts for the current frame.
@@ -40,7 +45,7 @@
  * whether specific keys were pressed during this frame and performs the
  * matching action.
  */
-void cw_key_mapping(void) {
+void cw_key_mapping(Camera3D *c) {
 
     /*
      * F2 toggles cursor visibility. This is useful while testing first-person
@@ -52,5 +57,10 @@ void cw_key_mapping(void) {
         } else {
             HideCursor();
         }
+    } else if (IsKeyPressed(KEY_SPACE)) {
+
+        c->position.y += cw_jump_speed;
+        WaitTime(1.0);
+        c->position.y -= cw_jump_speed;
     }
 }

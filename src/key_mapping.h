@@ -34,12 +34,12 @@ extern "C" {
 /**
  * @brief Short alias for processing the project's keyboard shortcuts.
  */
-#define CW_KEY_MAP() (cw_key_mapping())
+#define CW_KEY_MAP(c) (cw_key_mapping(c))
 
 /**
  * @brief Process one frame of global keyboard shortcuts.
  */
-extern void cw_key_mapping(void);
+extern void cw_key_mapping(Camera3D *c);
 
 #ifdef __cplusplus
 }

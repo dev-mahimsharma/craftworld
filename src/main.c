@@ -34,6 +34,7 @@
 #include "key_mapping.h"
 #include "raylib.h"
 #include "raylib_init.h"
+#include "world_init.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -58,6 +59,13 @@ int main(void) {
      */
     CW_Return cw_create_window = CREATE_WIN();
     if (CW_FAILED(cw_create_window)) {
+        return EXIT_FAILURE;
+    }
+
+    // assigning the world initially with blocks (stone and grass on top layer).
+
+    CW_Return init_world = CW_WORLD_INIT();
+    if (CW_FAILED(init_world)) {
         return EXIT_FAILURE;
     }
 
@@ -91,7 +99,7 @@ int main(void) {
          * drawing. This keeps user actions responsive.
          */
         RESIZE_WIN();
-        CW_KEY_MAP();
+        CW_KEY_MAP(camera);
 
         /*
          * raylib updates the first-person camera from keyboard and mouse input.
@@ -111,8 +119,17 @@ int main(void) {
          * camera's 3D perspective instead of flat 2D screen coordinates.
          */
         BeginMode3D(*camera);
-        DrawGrid(20, 1.0f);
-        DrawCube((Vector3){0, 0.5f, 0}, 1, 1, 1, BROWN);
+
+        // using world_init.h here
+
+        CW_Return create_world = CW_WORLD_DRAW();
+
+        if (CW_FAILED(create_world)) {
+            return EXIT_FAILURE;
+        }
+
+        DrawGrid(20, 1.f);
+
         EndMode3D();
 
         EndDrawing();
